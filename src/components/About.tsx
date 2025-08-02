@@ -101,7 +101,7 @@ const About: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 rounded-full opacity-20 animate-pulse"></div>
               <div className="absolute inset-2 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
                 <img
-                  src="/src/images/profile1.jpeg"
+                  src="https://drive.google.com/file/d/1wFzm9wHLqJ3r7itcnxmk4AWI1ih7dpi5/view?usp=sharing"
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
