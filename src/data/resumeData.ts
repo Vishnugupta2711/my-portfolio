@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export interface Skill {
   category: string;
@@ -40,7 +40,7 @@ export interface ResumeData {
   phone: string;
   location: string;
   socials: {
-    icon: typeof Github | typeof Linkedin | typeof Mail | typeof Phone;
+    icon: typeof Github | typeof Linkedin | typeof Mail;
     url: string;
     label: string;
   }[];
@@ -56,6 +56,7 @@ const resumeData: ResumeData = {
   name: "Vishnu Gupta",
   title: "Computer Science Engineering Student",
   email: "guptavishnu2711@gmail.com",
+  phone: "+91-XXXXXXXXXX", // Added missing phone property
   location: "Kanpur, Uttar Pradesh",
   socials: [
     {
@@ -73,7 +74,6 @@ const resumeData: ResumeData = {
       url: "mailto:guptavishnu2711@gmail.com",
       label: "Email",
     },
-  
   ],
   about:
     "CSE undergraduate at SRM University with a strong passion for web development and emerging technologies. Enthusiastic about solving real-world challenges, contributing to open-source projects, and collaborating on innovative solutions to drive meaningful impact.",
@@ -83,20 +83,16 @@ const resumeData: ResumeData = {
       items: ["JavaScript", "C++", "C", "Java", "Python"],
     },
     {
-      category: "Frameworks",
-      items: ["React.js", "Express.js", "Node.js", "Tailwind CSS", "Bootstrap"],
+      category: "Frameworks & Backend",
+      items: ["React.js", "Node.js", "Express.js", "Tailwind CSS", "Bootstrap"],
     },
     {
-      category: "Cloud Services",
-      items: ["Github"],
+      category: "Databases",
+      items: ["MongoDB", "MySQL"],
     },
     {
-      category: "Miscellaneous",
-      items: ["MongoDB", "MySQL", "Figma", "Canva"],
-    },
-    {
-      category: "Backend Tools",
-      items: ["Express.js", "Node.js"],
+      category: "Developer Tools",
+      items: ["Github", "Figma", "Canva"],
     },
   ],
   projects: [
@@ -110,48 +106,42 @@ const resumeData: ResumeData = {
         "Raspberry Pi",
         "Machine Learning",
       ],
-      imageUrl:
-        "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      imageUrl: "/seg.png", // Corrected typo and path
     },
     {
       title: "E-Commerce Website",
       description:
-        "Developed a user-friendly platform for browsing and purchasing products online. Features include product listings, a shopping cart, and secure payment processing.",
+        "Developed a user-friendly platform for Browse and purchasing products online. Features include product listings, a shopping cart, and secure payment processing.",
       technologies: ["React", "Node.js", "Express", "MongoDB"],
-      imageUrl:
-        "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      imageUrl: "/ecom.png", // Standardized path
     },
     {
       title: "Biometric Face Authentication",
       description:
         "This project enables users to log in by scanning their faces. It captures facial features via camera and verifies identity against stored data.",
       technologies: ["React", "Node.js", "Express", "TensorFlow.js"],
-      imageUrl:
-        "https://images.pexels.com/photos/5439153/pexels-photo-5439153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      imageUrl: "/auth.png", // Standardized path
     },
     {
       title: "Aura+ Mental Health",
       description:
         "Voice-Enabled Mental Health Platform for Individuals with Disabilities. Developed an inclusive, accessible mental health platform specifically designed for the disabled community.",
       technologies: ["Voice Recognition", "React", "Node.js", "Accessibility"],
-      imageUrl:
-        "https://images.pexels.com/photos/3807738/pexels-photo-3807738.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      imageUrl: "/aura.png", // Standardized path
     },
     {
       title: "Smart Helmet",
       description:
         "The smart helmet IoT project enhances safety by detecting helmet wear, alcohol consumption, and accidents in real-time. It provides timely alerts to users and emergency services.",
       technologies: ["IoT", "Sensors", "Real-time Monitoring", "Alert System"],
-      imageUrl:
-        "https://images.pexels.com/photos/8285483/pexels-photo-8285483.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      imageUrl: "/helemt.jpg", // Standardized path
     },
     {
       title: "AgriScan – Potato and Tomato Leaf Disease Classification System",
       description:
         "Developed an AI-powered crop disease detection system—AgriScan—for potato and tomato plants, capable of classifying leaf diseases and providing actionable treatment suggestions. Integrated a deep learning model trained using TensorFlow and Keras. The system uses OpenCV to preprocess images and offers a web interface via Flask or Streamlit for real-time diagnosis.",
       technologies: ["TensorFlow", "Keras", "OpenCV", "Flask", "Streamlit"],
-      imageUrl:
-        "https://images.pexels.com/photos/6195210/pexels-photo-6195210.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      imageUrl: "/agri.png", // Standardized path
     },
   ],
   education: [
@@ -160,14 +150,12 @@ const resumeData: ResumeData = {
       degree: "Bachelor of Technology in Computer Science and Engineering",
       duration: "2023/08 – present",
       location: "Chennai, India",
-      
     },
     {
       institution: "Army Public School, Cantt Kanpur",
       degree: "XII(PCM & CS)",
       duration: "2009/04 – 2022/06",
       location: "Kanpur, India",
-      
     },
   ],
   achievements: [
