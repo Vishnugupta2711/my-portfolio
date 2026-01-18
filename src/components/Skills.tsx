@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import resumeData from "../data/resumeData";
 
-const Skills: React.FC = () => {
-  const skillRefs = useRef<(HTMLDivElement | null)[]>([]);
+const Projects: React.FC = () => {
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -18,90 +18,109 @@ const Skills: React.FC = () => {
       { threshold: 0.2 }
     );
 
-    skillRefs.current.forEach((el) => el && observer.observe(el));
+    projectRefs.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  const getCategoryColor = (category: string) => {
-    const colorMap: Record<string, string> = {
-      "Programming Languages":
-        "from-blue-500 to-blue-700 dark:from-blue-400 dark:to-blue-600",
-      "AI / Machine Learning":
-        "from-purple-500 to-purple-700 dark:from-purple-400 dark:to-purple-600",
-      "Web & Backend":
-        "from-green-500 to-green-700 dark:from-green-400 dark:to-green-600",
-      "Databases & Data":
-        "from-yellow-500 to-yellow-700 dark:from-yellow-400 dark:to-yellow-600",
-      "DevOps & Tools":
-        "from-red-500 to-red-700 dark:from-red-400 dark:to-red-600",
-      "Core CS":
-        "from-indigo-500 to-indigo-700 dark:from-indigo-400 dark:to-indigo-600",
-    };
-
-    return colorMap[category] ?? "from-gray-500 to-gray-700";
-  };
-
   return (
     <section
-      id="skills"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800"
+      id="projects"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Skills & Expertise
+            My Projects
           </h2>
           <div className="w-20 h-1 bg-blue-600 dark:bg-blue-400 mx-auto rounded-full" />
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Technologies, frameworks, and core computer science foundations I
-            work with
+            A selection of AI, full-stack, and research-driven projects
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {resumeData.skills.map((skillGroup, index) => (
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {resumeData.projects.map((project, index) => (
             <div
-              key={skillGroup.category}
-              ref={(el) => (skillRefs.current[index] = el)}
+              key={project.title}
+              ref={(el) => (projectRefs.current[index] = el)}
               style={{ transitionDelay: `${index * 120}ms` }}
+              tabIndex={0}
               className="
-                group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden
-                shadow-sm hover:shadow-xl
-                transform hover:-translate-y-2 hover:scale-[1.02]
+                group bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden
+                shadow-md hover:shadow-xl focus:shadow-xl
+                transform hover:-translate-y-2 focus:-translate-y-2
                 opacity-0 translate-y-8
-                transition-all duration-500 ease-out
+                transition-all duration-600 ease-out
+                outline-none
               "
             >
-              {/* Accent bar */}
-              <div
-                className={`h-2 bg-gradient-to-r ${getCategoryColor(
-                  skillGroup.category
-                )}`}
-              />
+              {/* Image */}
+              <div className="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
+                {project.imageUrl && (
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    loading="lazy"
+                    className="
+                      w-full h-full object-cover
+                      transition-transform duration-700 ease-out
+                      group-hover:scale-110 group-focus:scale-110
+                    "
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                  <h3 className="text-white font-semibold text-lg p-4">
+                    {project.title}
+                  </h3>
+                </div>
+              </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                  {skillGroup.category}
-                </h3>
+              {/* Content */}
+              <div className="p-6 flex flex-col h-full">
+                <p className="text-gray-700 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                  {project.description}
+                </p>
 
-                <div className="flex flex-wrap gap-2">
-                  {skillGroup.items.map((skill) => (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech) => (
                     <span
-                      key={skill}
+                      key={tech}
                       className="
-                        px-3 py-1.5 rounded-full text-sm font-medium
-                        bg-gray-100 dark:bg-gray-800
-                        text-gray-800 dark:text-gray-200
-                        hover:bg-blue-100 dark:hover:bg-blue-900/30
-                        hover:text-blue-700 dark:hover:text-blue-300
-                        transition-colors duration-300 cursor-default
+                        px-2 py-1 rounded-md text-xs font-medium
+                        bg-blue-100 dark:bg-blue-900/30
+                        text-blue-800 dark:text-blue-300
                       "
                     >
-                      {skill}
+                      {tech}
                     </span>
                   ))}
+                </div>
+
+                {/* Actions */}
+                <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
+                  {project.githubUrl ? (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        text-sm font-medium
+                        text-gray-700 dark:text-gray-300
+                        hover:text-black dark:hover:text-white
+                        transition-colors duration-300
+                      "
+                    >
+                      GitHub ↗
+                    </a>
+                  ) : (
+                    <span />
+                  )}
+
+                  <span className="text-sm text-blue-600 dark:text-blue-400 font-medium group-hover:underline">
+                    View Details →
+                  </span>
                 </div>
               </div>
             </div>
@@ -112,4 +131,4 @@ const Skills: React.FC = () => {
   );
 };
 
-export default Skills;
+export default Projects;
