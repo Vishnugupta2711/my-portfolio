@@ -267,7 +267,7 @@ const resumeData: ResumeData = {
       "Real-time Monitoring",
       "Alert System",
     ],
-    imageUrl: "/helemt.jpg",
+    imageUrl: "/agri.png",
   },
   {
     title: "AgriScan – Crop Disease Detection System",
