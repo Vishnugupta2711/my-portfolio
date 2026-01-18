@@ -10,7 +10,9 @@ export interface Project {
   description: string;
   technologies: string[];
   imageUrl?: string;
+  githubUrl?: string;   
 }
+
 
 export interface Education {
   institution: string;
@@ -182,6 +184,8 @@ const resumeData: ResumeData = {
       "Edge AI",
     ],
     imageUrl: "/seg.png",
+    githubUrl:
+      "https://github.com/Vishnugupta2711/Real-time-medical-waste-segregation-using-transformers-and-edge-AI-solutions",
   },
   {
     title: "AI-Powered Data Drift Monitoring & Risk Detection System",
@@ -197,6 +201,8 @@ const resumeData: ResumeData = {
       "React",
     ],
     imageUrl: "/drift.png",
+    githubUrl:
+      "https://github.com/Vishnugupta2711/DATA_DRIEF_MONITOR",
   },
   {
     title: "AI-Powered API Monitoring & Anomaly Detection System",
@@ -213,6 +219,8 @@ const resumeData: ResumeData = {
       "Flask",
     ],
     imageUrl: "/api.png",
+    githubUrl:
+      "https://github.com/Vishnugupta2711/API_MONITORING_AND_ANOMALY_DETECTION",
   },
   {
     title: "Aura+ – Mental Health Platform for Disabled Individuals",
@@ -228,6 +236,8 @@ const resumeData: ResumeData = {
       "Accessibility",
     ],
     imageUrl: "/aura.png",
+    githubUrl:
+      "https://github.com/Vishnugupta2711/mental_health_v1.0",
   },
   {
     title: "E-Commerce Website",
@@ -255,6 +265,8 @@ const resumeData: ResumeData = {
       "FaceAPI",
     ],
     imageUrl: "/auth.png",
+    githubUrl:
+      "https://github.com/Vishnugupta2711/face_auth",
   },
   {
     title: "Smart Helmet – IoT Safety System",
@@ -268,6 +280,8 @@ const resumeData: ResumeData = {
       "Alert System",
     ],
     imageUrl: "/helemt.jpg",
+    githubUrl:
+      "https://github.com/Vishnugupta2711/AURA-Smart-NextGen-Head-Gear",
   },
   {
     title: "AgriScan – Crop Disease Detection System",
@@ -281,8 +295,11 @@ const resumeData: ResumeData = {
       "Streamlit",
     ],
     imageUrl: "/agri.png",
+    githubUrl:
+      "https://github.com/Vishnugupta2711/AURA-AgriScan-Potato-Leaf-Diagnosis",
   },
 ],
+
 
 
   education: [
