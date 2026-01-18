@@ -19,7 +19,6 @@ const Skills: React.FC = () => {
     );
 
     skillRefs.current.forEach((el) => el && observer.observe(el));
-
     return () => observer.disconnect();
   }, []);
 
@@ -55,8 +54,8 @@ const Skills: React.FC = () => {
           </h2>
           <div className="w-20 h-1 bg-blue-600 dark:bg-blue-400 mx-auto rounded-full" />
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Technologies, tools, and core computer science foundations I work
-            with
+            Technologies, frameworks, and core computer science foundations I
+            work with
           </p>
         </div>
 
