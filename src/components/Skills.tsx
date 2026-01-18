@@ -2,11 +2,9 @@ import React, { useEffect, useRef } from "react";
 import resumeData from "../data/resumeData";
 
 const Skills: React.FC = () => {
-  const skillRefs = useRef<HTMLDivElement[]>([]);
+  const skillRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    skillRefs.current = [];
-
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -17,15 +15,14 @@ const Skills: React.FC = () => {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.2 }
     );
 
-    skillRefs.current.forEach((el) => observer.observe(el));
+    skillRefs.current.forEach((el) => el && observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
 
-  // Updated category colors aligned with resumeData
   const getCategoryColor = (category: string) => {
     const colorMap: Record<string, string> = {
       "Programming Languages":
@@ -42,10 +39,7 @@ const Skills: React.FC = () => {
         "from-indigo-500 to-indigo-700 dark:from-indigo-400 dark:to-indigo-600",
     };
 
-    return (
-      colorMap[category] ||
-      "from-gray-500 to-gray-700 dark:from-gray-400 dark:to-gray-600"
-    );
+    return colorMap[category] ?? "from-gray-500 to-gray-700";
   };
 
   return (
@@ -56,26 +50,26 @@ const Skills: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             My Skills
           </h2>
-          <div className="w-20 h-1 bg-blue-600 dark:bg-blue-400 mx-auto rounded-full" />
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full" />
+          <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
             Technologies, frameworks, and core computer science foundations I
             work with
           </p>
         </div>
 
-        {/* Skills Grid */}
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {resumeData.skills.map((skillGroup, index) => (
             <div
               key={skillGroup.category}
-              ref={(el) => el && skillRefs.current.push(el)}
+              ref={(el) => (skillRefs.current[index] = el)}
               style={{ transitionDelay: `${index * 120}ms` }}
               className="
                 bg-white dark:bg-gray-900 rounded-xl overflow-hidden
-                shadow-md hover:shadow-lg transform hover:-translate-y-1
+                shadow-md hover:shadow-lg
                 opacity-0 translate-y-8
                 transition-all duration-700 ease-out
               "
@@ -94,13 +88,9 @@ const Skills: React.FC = () => {
                   {skillGroup.items.map((skill) => (
                     <span
                       key={skill}
-                      className="
-                        px-3 py-1 rounded-full text-sm font-medium
+                      className="px-3 py-1 rounded-full text-sm
                         bg-gray-100 dark:bg-gray-800
-                        text-gray-800 dark:text-gray-200
-                        hover:bg-gray-200 dark:hover:bg-gray-700
-                        transition-colors duration-300
-                      "
+                        text-gray-800 dark:text-gray-200"
                     >
                       {skill}
                     </span>
