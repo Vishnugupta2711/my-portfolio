@@ -19,7 +19,6 @@ const Projects: React.FC = () => {
     );
 
     projectRefs.current.forEach((el) => el && observer.observe(el));
-
     return () => observer.disconnect();
   }, []);
 
@@ -63,12 +62,12 @@ const Projects: React.FC = () => {
                   <img
                     src={project.imageUrl}
                     alt={project.title}
+                    loading="lazy"
                     className="
                       w-full h-full object-cover
                       transition-transform duration-700 ease-out
                       group-hover:scale-110 group-focus:scale-110
                     "
-                    loading="lazy"
                   />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
@@ -99,7 +98,26 @@ const Projects: React.FC = () => {
                   ))}
                 </div>
 
-                <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+                {/* Actions */}
+                <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
+                  {project.githubUrl ? (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        text-sm font-medium
+                        text-gray-700 dark:text-gray-300
+                        hover:text-black dark:hover:text-white
+                        transition-colors duration-300
+                      "
+                    >
+                      GitHub ↗
+                    </a>
+                  ) : (
+                    <span />
+                  )}
+
                   <span className="text-sm text-blue-600 dark:text-blue-400 font-medium group-hover:underline">
                     View Details →
                   </span>
