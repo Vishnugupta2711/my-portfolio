@@ -303,32 +303,62 @@ const resumeData: ResumeData = {
   ],
 
   achievements: [
-    {
-      title: "Winner – Tem-E-Thon",
-      organization: "Temenos",
-      description: "Winner of a 24-hour national-level hackathon.",
-    },
-    {
-      title: "1st Runner-Up – HackZ’24",
-      organization: "Anna University",
-      description: "Secured first runner-up position at a national hackathon.",
-    },
-    {
-      title: "2nd Runner-Up – Hack of Duty",
-      organization: "ACM-SIGKDD",
-      description: "Recognized for innovative problem-solving.",
-    },
-    {
-      title: "Global Rank 499 – CodeVita Season 12",
-      organization: "TCS",
-      description: "Achieved global rank 499 among thousands of participants.",
-    },
-    {
-      title: "Finalist (Top 8) – HACK-O-HIRE 2025",
-      organization: "Barclays",
-      description: "Selected among top 8 teams nationwide.",
-    },
-  ],
+  {
+    title: "Winner – Tem-E-Thon",
+    organization: "Temenos",
+    description:
+      "Winner of a 24-hour national-level hackathon conducted by Temenos for building an innovative technology solution.",
+  },
+  {
+    title: "1st Runner-Up – HackZ’24",
+    organization: "Anna University",
+    description:
+      "Secured first runner-up position at a 24-hour national-level hackathon organized by CSEA, Anna University.",
+  },
+  {
+    title: "2nd Runner-Up – Hack of Duty",
+    organization: "ACM-SIGKDD",
+    description:
+      "Achieved second runner-up position in a national-level hackathon focused on data-driven and AI-based solutions.",
+  },
+  {
+    title: "Finalist (Top 8) – HACK-O-HIRE 2025",
+    organization: "Barclays",
+    description:
+      "Selected among the top 8 finalist teams nationwide in Barclays HACK-O-HIRE 2025 hackathon.",
+  },
+  {
+    title: "Finalist (Top 8) – KIRIT 5.0 Case Analysis Competition",
+    organization: "Kirloskar Institute of Management",
+    description:
+      "Selected as a finalist in a national-level case analysis competition focused on business and technology strategy.",
+  },
+  {
+    title: "Global Rank 499 – TCS CodeVita Season 12",
+    organization: "Tata Consultancy Services (TCS)",
+    description:
+      "Achieved a global rank of 499 among thousands of participants in TCS CodeVita Season 12 competitive programming contest.",
+  },
+  {
+    title: "Best User Experience Award – Hack Summit 5.0",
+    organization: "Aaruush’24, SRM Institute of Science and Technology",
+    description:
+      "Awarded for delivering the best user experience among all projects presented at Hack Summit 5.0.",
+  },
+  {
+    title: "Certificate of Merit – Smart Patient Monitoring Alert System",
+    organization: "Technknow 2023–2024",
+    description:
+      "Recognized for presenting and demonstrating the best working model during the Technknow 2023–2024 technical event.",
+  },
+  {
+    title: "Solved 300+ DSA Problems",
+    organization: "LeetCode, CodeChef, HackerRank, GeeksforGeeks",
+    description:
+      "Solved over 300+ data structures and algorithms problems across multiple competitive programming platforms.",
+  },
+],
+
 
   organizations: [
     {
