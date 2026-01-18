@@ -19,6 +19,7 @@ const Skills: React.FC = () => {
     );
 
     skillRefs.current.forEach((el) => el && observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
 
@@ -49,11 +50,11 @@ const Skills: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Skills & Expertise
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            My Skills
           </h2>
-          <div className="w-20 h-1 bg-blue-600 dark:bg-blue-400 mx-auto rounded-full" />
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full" />
+          <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
             Technologies, frameworks, and core computer science foundations I
             work with
           </p>
@@ -67,20 +68,17 @@ const Skills: React.FC = () => {
               ref={(el) => (skillRefs.current[index] = el)}
               style={{ transitionDelay: `${index * 120}ms` }}
               className="
-                group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden
-                shadow-sm hover:shadow-xl
-                transform hover:-translate-y-2 hover:scale-[1.02]
+                bg-white dark:bg-gray-900 rounded-xl overflow-hidden
+                shadow-md hover:shadow-lg
                 opacity-0 translate-y-8
-                transition-all duration-500 ease-out
+                transition-all duration-700 ease-out
               "
             >
-              {/* Accent bar */}
               <div
                 className={`h-2 bg-gradient-to-r ${getCategoryColor(
                   skillGroup.category
                 )}`}
               />
-
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                   {skillGroup.category}
@@ -90,14 +88,9 @@ const Skills: React.FC = () => {
                   {skillGroup.items.map((skill) => (
                     <span
                       key={skill}
-                      className="
-                        px-3 py-1.5 rounded-full text-sm font-medium
+                      className="px-3 py-1 rounded-full text-sm
                         bg-gray-100 dark:bg-gray-800
-                        text-gray-800 dark:text-gray-200
-                        hover:bg-blue-100 dark:hover:bg-blue-900/30
-                        hover:text-blue-700 dark:hover:text-blue-300
-                        transition-colors duration-300 cursor-default
-                      "
+                        text-gray-800 dark:text-gray-200"
                     >
                       {skill}
                     </span>
@@ -113,3 +106,5 @@ const Skills: React.FC = () => {
 };
 
 export default Skills;
+
+
