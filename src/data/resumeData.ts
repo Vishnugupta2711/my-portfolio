@@ -168,68 +168,122 @@ const resumeData: ResumeData = {
   ],
 
   projects: [
-    {
-      title: "AI-Powered Smart Waste Segregation Bin",
-      description:
-        "Engineered a real-time smart waste segregation system using Vision Transformers, YOLOv11, EfficientDet-Lite0, and custom CNNs. Achieved up to 98% classification accuracy and reduced manual waste sorting by 60% using edge AI deployment on Raspberry Pi.",
-      technologies: [
-        "PyTorch",
-        "TensorFlow",
-        "OpenCV",
-        "Vision Transformers",
-        "YOLO",
-        "Raspberry Pi",
-        "Edge AI",
-      ],
-      imageUrl: "/seg.png",
-    },
-    {
-      title: "AI-Powered Data Drift Monitoring & Risk Detection System",
-      description:
-        "Built an ML observability platform to detect data, schema, and distribution drift across 50+ features using statistical tests. Visualized drift severity and triggered automated alerts to prevent silent ML failures.",
-      technologies: [
-        "Python",
-        "Pandas",
-        "Scikit-learn",
-        "FastAPI",
-        "PostgreSQL",
-        "Docker",
-        "React",
-      ],
-      imageUrl: "/drift.png",
-    },
-    {
-      title: "AI-Powered API Monitoring & Anomaly Detection System",
-      description:
-        "Developed an ML-driven API observability system using LSTM and Isolation Forest. Integrated ELK Stack to analyze logs, predict anomalies, and reduce incident response time by 60%.",
-      technologies: [
-        "Python",
-        "LSTM",
-        "Isolation Forest",
-        "Elasticsearch",
-        "Logstash",
-        "Kibana",
-        "Docker",
-        "Flask",
-      ],
-      imageUrl: "/api.png",
-    },
-    {
-      title: "Aura+ – Mental Health Platform for Disabled Individuals",
-      description:
-        "Designed an inclusive mental health platform with face & voice authentication, sign language detection, multilingual voice navigation, AI chatbot, and IoT-based vitals monitoring for accessible therapy.",
-      technologies: [
-        "MERN Stack",
-        "NLP",
-        "Google Speech API",
-        "FaceAPI",
-        "Chart.js",
-        "Three.js",
-        "Accessibility",
-      ],
-      imageUrl: "/aura.png",
-    },
-  ],
+  {
+    title: "AI-Powered Smart Waste Segregation Bin",
+    description:
+      "Engineered a real-time smart waste segregation system using Vision Transformers, YOLOv11, EfficientDet-Lite0, and custom CNNs. Achieved up to 98% accuracy and reduced manual sorting by 60% using edge AI deployment on Raspberry Pi.",
+    technologies: [
+      "PyTorch",
+      "TensorFlow",
+      "OpenCV",
+      "Vision Transformers",
+      "YOLO",
+      "Raspberry Pi",
+      "Edge AI",
+    ],
+    imageUrl: "/seg.png",
+  },
+  {
+    title: "AI-Powered Data Drift Monitoring & Risk Detection System",
+    description:
+      "Built an ML observability platform to detect data, schema, and distribution drift across 50+ features using KS test, Chi-square, and JS divergence. Reduced investigation time by 40% and model degradation incidents by 30%.",
+    technologies: [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "React",
+    ],
+    imageUrl: "/drift.png",
+  },
+  {
+    title: "AI-Powered API Monitoring & Anomaly Detection System",
+    description:
+      "Developed an ML-driven API observability platform using LSTM and Isolation Forest. Integrated ELK Stack for real-time log analysis, anomaly prediction, and alerting, reducing incident response time by 60%.",
+    technologies: [
+      "Python",
+      "LSTM",
+      "Isolation Forest",
+      "Elasticsearch",
+      "Logstash",
+      "Kibana",
+      "Docker",
+      "Flask",
+    ],
+    imageUrl: "/api.png",
+  },
+  {
+    title: "Aura+ – Mental Health Platform for Disabled Individuals",
+    description:
+      "Designed an inclusive mental health platform with face & voice authentication, sign language detection, multilingual voice navigation, AI chatbot, IoT vitals monitoring, and VR-based therapy modules.",
+    technologies: [
+      "MERN Stack",
+      "NLP",
+      "Google Speech API",
+      "FaceAPI",
+      "Chart.js",
+      "Three.js",
+      "Accessibility",
+    ],
+    imageUrl: "/aura.png",
+  },
+  {
+    title: "E-Commerce Website",
+    description:
+      "Built a full-stack e-commerce platform with product listings, cart management, authentication, role-based admin access, and secure backend APIs.",
+    technologies: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Tailwind CSS",
+    ],
+    imageUrl: "/ecom.png",
+  },
+  {
+    title: "Biometric Face Authentication System",
+    description:
+      "Implemented a face-based authentication system using webcam capture and deep learning models. Enabled secure login with real-time face verification against stored embeddings.",
+    technologies: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "TensorFlow.js",
+      "FaceAPI",
+    ],
+    imageUrl: "/auth.png",
+  },
+  {
+    title: "Smart Helmet – IoT Safety System",
+    description:
+      "Developed an IoT-based smart helmet to detect helmet usage, alcohol consumption, and accidents. Integrated real-time alerts and emergency notification systems.",
+    technologies: [
+      "IoT",
+      "ESP32",
+      "Sensors",
+      "Real-time Monitoring",
+      "Alert System",
+    ],
+    imageUrl: "/helmet.jpg",
+  },
+  {
+    title: "AgriScan – Crop Disease Detection System",
+    description:
+      "Developed an AI-powered crop disease detection system for potato and tomato plants. Used deep learning models with OpenCV preprocessing and deployed via Flask/Streamlit web interface.",
+    technologies: [
+      "TensorFlow",
+      "Keras",
+      "OpenCV",
+      "Flask",
+      "Streamlit",
+    ],
+    imageUrl: "/agri.png",
+  },
+],
+
 
   education: [
     {
