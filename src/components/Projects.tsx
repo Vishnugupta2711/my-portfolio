@@ -2,11 +2,9 @@ import React, { useEffect, useRef } from "react";
 import resumeData from "../data/resumeData";
 
 const Projects: React.FC = () => {
-  const projectRefs = useRef<HTMLDivElement[]>([]);
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    projectRefs.current = [];
-
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -17,10 +15,10 @@ const Projects: React.FC = () => {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.2 }
     );
 
-    projectRefs.current.forEach((el) => observer.observe(el));
+    projectRefs.current.forEach((el) => el && observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
@@ -31,7 +29,7 @@ const Projects: React.FC = () => {
       className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             My Projects
@@ -42,18 +40,21 @@ const Projects: React.FC = () => {
           </p>
         </div>
 
-        {/* Projects Grid */}
+        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {resumeData.projects.map((project, index) => (
             <div
               key={project.title}
-              ref={(el) => el && projectRefs.current.push(el)}
+              ref={(el) => (projectRefs.current[index] = el)}
               style={{ transitionDelay: `${index * 120}ms` }}
+              tabIndex={0}
               className="
                 group bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden
-                shadow-md hover:shadow-xl transform hover:-translate-y-2
+                shadow-md hover:shadow-xl focus:shadow-xl
+                transform hover:-translate-y-2 focus:-translate-y-2
                 opacity-0 translate-y-8
-                transition-all duration-700 ease-out
+                transition-all duration-600 ease-out
+                outline-none
               "
             >
               {/* Image */}
@@ -65,8 +66,9 @@ const Projects: React.FC = () => {
                     className="
                       w-full h-full object-cover
                       transition-transform duration-700 ease-out
-                      group-hover:scale-110
+                      group-hover:scale-110 group-focus:scale-110
                     "
+                    loading="lazy"
                   />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
@@ -98,7 +100,7 @@ const Projects: React.FC = () => {
                 </div>
 
                 <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <span className="text-sm text-blue-600 dark:text-blue-400 font-medium">
+                  <span className="text-sm text-blue-600 dark:text-blue-400 font-medium group-hover:underline">
                     View Details →
                   </span>
                 </div>
