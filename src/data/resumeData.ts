@@ -33,6 +33,15 @@ export interface Organization {
   location: string;
 }
 
+export interface Experience {
+  role: string;
+  organization: string;
+  duration: string;
+  location: string;
+  description: string[];
+  technologies: string[];
+}
+
 export interface ResumeData {
   name: string;
   title: string;
@@ -46,6 +55,7 @@ export interface ResumeData {
   }[];
   about: string;
   skills: Skill[];
+  experience: Experience[];
   projects: Project[];
   education: Education[];
   achievements: Achievement[];
@@ -54,10 +64,11 @@ export interface ResumeData {
 
 const resumeData: ResumeData = {
   name: "Vishnu Gupta",
-  title: "Computer Science Engineering Student",
+  title: "Computer Science Engineering Student | AI & Full-Stack Developer",
   email: "guptavishnu2711@gmail.com",
-  phone: "+91-XXXXXXXXXX", // Added missing phone property
-  location: "Kanpur, Uttar Pradesh",
+  phone: "+91 8707664131",
+  location: "Kanpur, Uttar Pradesh, India",
+
   socials: [
     {
       icon: Linkedin,
@@ -75,147 +86,213 @@ const resumeData: ResumeData = {
       label: "Email",
     },
   ],
+
   about:
-    "CSE undergraduate at SRM University with a strong passion for web development and emerging technologies. Enthusiastic about solving real-world challenges, contributing to open-source projects, and collaborating on innovative solutions to drive meaningful impact.",
+    "Computer Science Engineering undergraduate at SRM Institute of Science and Technology with a strong focus on Artificial Intelligence, machine learning systems, and full-stack development. Currently a Research Intern at Samsung PRISM, working on GenAI, LLM-based data systems, and intelligent analytics pipelines. Passionate about building scalable, real-world solutions at the intersection of AI, systems, and user experience.",
+
   skills: [
     {
-      category: "Languages",
-      items: ["JavaScript", "C++", "C", "Java", "Python"],
+      category: "Programming Languages",
+      items: ["JavaScript", "Python", "C++", "C", "Java"],
     },
     {
-      category: "Frameworks & Backend",
-      items: ["React.js", "Node.js", "Express.js", "Tailwind CSS", "Bootstrap"],
+      category: "AI / Machine Learning",
+      items: [
+        "TensorFlow",
+        "PyTorch",
+        "Keras",
+        "OpenCV",
+        "Scikit-learn",
+        "Computer Vision",
+        "NLP",
+        "LLMs",
+        "RAG",
+      ],
     },
     {
-      category: "Databases",
-      items: ["MongoDB", "MySQL"],
+      category: "Web & Backend",
+      items: [
+        "React.js",
+        "Vite",
+        "Node.js",
+        "Express.js",
+        "Flask",
+        "Django",
+        "FastAPI",
+        "Tailwind CSS",
+      ],
     },
     {
-      category: "Developer Tools",
-      items: ["Github", "Figma", "Canva"],
+      category: "Databases & Data",
+      items: ["MongoDB", "MySQL", "PostgreSQL", "SQLAlchemy", "Mongoose"],
+    },
+    {
+      category: "DevOps & Tools",
+      items: ["Git", "GitHub", "Docker", "Google Cloud", "Figma", "Canva"],
+    },
+    {
+      category: "Core CS",
+      items: [
+        "Data Structures & Algorithms",
+        "Operating Systems",
+        "DBMS",
+        "OOP",
+        "Computer Networks",
+      ],
     },
   ],
+
+  experience: [
+    {
+      role: "Research Intern",
+      organization: "Samsung PRISM",
+      duration: "June 2025 – Present",
+      location: "Chennai, India",
+      technologies: [
+        "GenAI",
+        "LLMs",
+        "RAG",
+        "LangChain",
+        "ChromaDB",
+        "Streamlit",
+        "SQLAlchemy",
+        "PyMongo",
+      ],
+      description: [
+        "Designed intelligent investigation and reporting pipelines over structured and unstructured datasets.",
+        "Engineered scalable ingestion pipelines to process 10K+ records into relational SQL schemas using semantic similarity.",
+        "Built NLP-to-SQL/MongoDB systems enabling analysts to query data using natural language.",
+        "Improved query relevance by ~30% using context-aware retrieval and prompt optimization.",
+      ],
+    },
+  ],
+
   projects: [
     {
-      title: "Ecosystem-360 (Smart Waste Segregation System)",
+      title: "AI-Powered Smart Waste Segregation Bin",
       description:
-        "Developed an AI-powered smart bin with four compartments—Recycle, Reusable, Compost, and Non-Recyclable—for efficient waste segregation. Integrated Raspberry Pi 4B with a camera module to classify waste in real time using computer vision and machine learning.",
+        "Engineered a real-time smart waste segregation system using Vision Transformers, YOLOv11, EfficientDet-Lite0, and custom CNNs. Achieved up to 98% classification accuracy and reduced manual waste sorting by 60% using edge AI deployment on Raspberry Pi.",
       technologies: [
-        "TensorFlow Lite",
-        "Computer Vision",
+        "PyTorch",
+        "TensorFlow",
+        "OpenCV",
+        "Vision Transformers",
+        "YOLO",
         "Raspberry Pi",
-        "Machine Learning",
+        "Edge AI",
       ],
-      imageUrl: "/seg.png", // Corrected typo and path
+      imageUrl: "/seg.png",
     },
     {
-      title: "E-Commerce Website",
+      title: "AI-Powered Data Drift Monitoring & Risk Detection System",
       description:
-        "Developed a user-friendly platform for Browse and purchasing products online. Features include product listings, a shopping cart, and secure payment processing.",
-      technologies: ["React", "Node.js", "Express", "MongoDB"],
-      imageUrl: "/ecom.png", // Standardized path
+        "Built an ML observability platform to detect data, schema, and distribution drift across 50+ features using statistical tests. Visualized drift severity and triggered automated alerts to prevent silent ML failures.",
+      technologies: [
+        "Python",
+        "Pandas",
+        "Scikit-learn",
+        "FastAPI",
+        "PostgreSQL",
+        "Docker",
+        "React",
+      ],
+      imageUrl: "/drift.png",
     },
     {
-      title: "Biometric Face Authentication",
+      title: "AI-Powered API Monitoring & Anomaly Detection System",
       description:
-        "This project enables users to log in by scanning their faces. It captures facial features via camera and verifies identity against stored data.",
-      technologies: ["React", "Node.js", "Express", "TensorFlow.js"],
-      imageUrl: "/auth.png", // Standardized path
+        "Developed an ML-driven API observability system using LSTM and Isolation Forest. Integrated ELK Stack to analyze logs, predict anomalies, and reduce incident response time by 60%.",
+      technologies: [
+        "Python",
+        "LSTM",
+        "Isolation Forest",
+        "Elasticsearch",
+        "Logstash",
+        "Kibana",
+        "Docker",
+        "Flask",
+      ],
+      imageUrl: "/api.png",
     },
     {
-      title: "Aura+ Mental Health",
+      title: "Aura+ – Mental Health Platform for Disabled Individuals",
       description:
-        "Voice-Enabled Mental Health Platform for Individuals with Disabilities. Developed an inclusive, accessible mental health platform specifically designed for the disabled community.",
-      technologies: ["Voice Recognition", "React", "Node.js", "Accessibility"],
-      imageUrl: "/aura.png", // Standardized path
-    },
-    {
-      title: "Smart Helmet",
-      description:
-        "The smart helmet IoT project enhances safety by detecting helmet wear, alcohol consumption, and accidents in real-time. It provides timely alerts to users and emergency services.",
-      technologies: ["IoT", "Sensors", "Real-time Monitoring", "Alert System"],
-      imageUrl: "/helemt.jpg", // Standardized path
-    },
-    {
-      title: "AgriScan – Potato and Tomato Leaf Disease Classification System",
-      description:
-        "Developed an AI-powered crop disease detection system—AgriScan—for potato and tomato plants, capable of classifying leaf diseases and providing actionable treatment suggestions. Integrated a deep learning model trained using TensorFlow and Keras. The system uses OpenCV to preprocess images and offers a web interface via Flask or Streamlit for real-time diagnosis.",
-      technologies: ["TensorFlow", "Keras", "OpenCV", "Flask", "Streamlit"],
-      imageUrl: "/agri.png", // Standardized path
+        "Designed an inclusive mental health platform with face & voice authentication, sign language detection, multilingual voice navigation, AI chatbot, and IoT-based vitals monitoring for accessible therapy.",
+      technologies: [
+        "MERN Stack",
+        "NLP",
+        "Google Speech API",
+        "FaceAPI",
+        "Chart.js",
+        "Three.js",
+        "Accessibility",
+      ],
+      imageUrl: "/aura.png",
     },
   ],
+
   education: [
     {
       institution: "S.R.M Institute of Science and Technology",
       degree: "Bachelor of Technology in Computer Science and Engineering",
-      duration: "2023/08 – present",
+      duration: "Aug 2023 – Present",
       location: "Chennai, India",
+      details: "CGPA: 9.45",
     },
     {
       institution: "Army Public School, Cantt Kanpur",
-      degree: "XII(PCM & CS)",
-      duration: "2009/04 – 2022/06",
+      degree: "Senior Secondary (PCM & Computer Science)",
+      duration: "Apr 2009 – Jun 2022",
       location: "Kanpur, India",
+      details: "XII: 76%, X: 77.2%",
     },
   ],
+
   achievements: [
     {
-      title: "Winner at Tem-E-Thon",
-      organization: "TEMENOS at Anna University",
-      description:
-        "Winner at a 24-hour national-level hackathon on February 8-9, 2025.",
+      title: "Winner – Tem-E-Thon",
+      organization: "Temenos",
+      description: "Winner of a 24-hour national-level hackathon.",
     },
     {
-      title: "Finalist (Top 8) in KIRIT 5.0 Case Analysis Competition",
-      organization: "Kirloskar Institute of Management",
-      description: "Selected as a finalist in the case analysis competition.",
+      title: "1st Runner-Up – HackZ’24",
+      organization: "Anna University",
+      description: "Secured first runner-up position at a national hackathon.",
     },
     {
-      title: "1st Runner-up at HackZ'24",
-      organization: "CSEA, Anna University",
-      description:
-        "First runner-up at a 24-hour national-level hackathon on Nov 23-24, 2024.",
-    },
-    {
-      title: "2nd Runner-up in Hack of Duty Hackathon",
+      title: "2nd Runner-Up – Hack of Duty",
       organization: "ACM-SIGKDD",
-      description: "Secured second runner-up position in the hackathon.",
+      description: "Recognized for innovative problem-solving.",
     },
     {
-      title: "Best User Experience track winner in Hack Summit 5.0",
-      organization: "Aaruush'24",
-      description: "Recognized for the best user experience in the hackathon.",
+      title: "Global Rank 499 – CodeVita Season 12",
+      organization: "TCS",
+      description: "Achieved global rank 499 among thousands of participants.",
     },
     {
-      title: "Certificate of Merit for Smart Patient Monitoring Alert System",
-      organization: "Technknow 2023-2024",
-      description:
-        "Recognized for demonstrating the best project during the event.",
-    },
-    {
-      title: "Finalist (Top 8) in Hack-O-Hire'25 Hackathon",
+      title: "Finalist (Top 8) – HACK-O-HIRE 2025",
       organization: "Barclays",
-      description:
-        "Selected as a finalist in the hackathon organized by Barclays.",
+      description: "Selected among top 8 teams nationwide.",
     },
   ],
+
   organizations: [
     {
       name: "Coding Ninja Club SRM",
       role: "Technical Member",
-      duration: "2024/09 – present",
+      duration: "Sep 2024 – Present",
       location: "Chennai, India",
     },
     {
-      name: "The Institution of Engineers (India) [IEI]",
-      role: "Member",
-      duration: "2024/01 – present",
+      name: "Institution of Engineers (India)",
+      role: "Student Member",
+      duration: "Jan 2024 – Present",
       location: "Chennai, India",
     },
     {
       name: "National Service Scheme",
       role: "Volunteer",
-      duration: "2024/01 – 2024/08",
+      duration: "Jan 2024 – Aug 2024",
       location: "Chennai, India",
     },
   ],
