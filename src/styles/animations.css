@@ -1,48 +1,65 @@
+/* ===============================
+   GRADIENT BACKGROUND ANIMATION
+================================ */
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
+    filter: hue-rotate(0deg);
   }
   50% {
     background-position: 100% 50%;
+    filter: hue-rotate(30deg);
   }
   100% {
     background-position: 0% 50%;
+    filter: hue-rotate(0deg);
   }
 }
 
+.animate-gradient {
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+}
+
+/* ===============================
+   FLOATING ANIMATIONS
+================================ */
 @keyframes float {
   0% {
-    transform: translateY(0px);
+    transform: translateY(0) scale(1);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-24px) scale(1.03);
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes float-delay {
   0% {
-    transform: translateY(0px);
+    transform: translateY(0) rotate(0deg);
   }
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-18px) rotate(1deg);
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(0) rotate(0deg);
   }
 }
 
 @keyframes float-slow {
   0% {
-    transform: translateY(0px);
+    transform: translateY(0);
+    opacity: 0.8;
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
+    opacity: 1;
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(0);
+    opacity: 0.8;
   }
 }
 
@@ -55,20 +72,70 @@
 }
 
 .animate-float-slow {
-  animation: float-slow 10s ease-in-out infinite;
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+/* ===============================
+   FADE + LIFT + BLUR (ENTRANCE)
+================================ */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* ===============================
+   GLOW / PULSE (CTA HIGHLIGHT)
+================================ */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(99, 102, 241, 0);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  50% {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(99, 102, 241, 0);
   }
 }
+
+.animate-glow {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* ===============================
+   3D HOVER EFFECT
+================================ */
+.hover-3d {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hover-3d:hover {
+  transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) scale(1.04);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ===============================
+   STAGGER ANIMATION (LISTS)
+================================ */
+.animate-stagger {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-stagger:nth-child(1) { animation-delay: 0.1s; }
+.animate-stagger:nth-child(2) { animation-delay: 0.2s; }
+.animate-stagger:nth-child(3) { animation-delay: 0.3s; }
+.animate-stagger:nth-child(4) { animation-delay: 0.4s; }
+.animate-stagger:nth-child(5) { animation-delay: 0.5s; }
